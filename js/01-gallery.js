@@ -30,8 +30,28 @@ function makeGalleryMarkup(galleryItems) {
 
 };
 
-document.querySelector('.gallery__link').addEventListener('click', (event) => {
+// document.querySelector('.gallery__link').addEventListener('click', (event) => {
+//     event.preventDefault();
+//     console.log(event.target.dataset.source)
+
+//     const instance = basicLightbox.create(`
+//     <img src="${event.target.dataset.source}" width="800" height="600">`)
+//     instance.show()
+
+//     document.addEventListener('keydown', e => {
+//         if (e.key === 'Escape') {
+//             instance.close()
+//             console.log(instance.close())
+//         }
+//     });
+
+// });
+
+gallery.addEventListener('click', (event) => {
     event.preventDefault();
+    if (event.target.nodeName !== "IMG") {
+        return;
+    }
     console.log(event.target.dataset.source)
 
     const instance = basicLightbox.create(`
@@ -46,4 +66,3 @@ document.querySelector('.gallery__link').addEventListener('click', (event) => {
     });
 
 });
-
