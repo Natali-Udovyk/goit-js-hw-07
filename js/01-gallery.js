@@ -30,9 +30,10 @@ function makeGalleryMarkup(galleryItems) {
 
 };
 
-gallery.addEventListener('click', (event) => {
+document.querySelector('.gallery__link').addEventListener('click', (event) => {
+    event.preventDefault();
     console.log(event.target.dataset.source)
-    event.preventDefault()
+
     const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">`)
     instance.show()
